@@ -51,6 +51,7 @@ services:
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/validator.toml:/etc/sawtooth/validator.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/cli.toml:/etc/sawtooth/cli.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/rest_api.toml:/etc/sawtooth/rest_api.toml
+        - /home/atri/workspace_sawtooth/pbft-sample-network/transaction-processors:/app/transaction-processors
     command: |
       bash -c "
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
@@ -67,10 +68,12 @@ services:
         apt-get install net-tools
         apt-get install -y sawtooth-pbft-engine
         apt-get install -y sawtooth-devmode-engine-rust
+        apt-get install -y python3-sawtooth-sdk
         apt-get install curl -y
         apt install iputils-ping -y
         /app/bin/genesis.sh
         /app/bin/services.sh
+        cp /root/.sawtooth/keys/my_key.priv /root/.sawtooth/keys/root.priv
         tail -F anything
       "
 
@@ -95,6 +98,7 @@ services:
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-b/validator/conf/validator.toml:/etc/sawtooth/validator.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-b/validator/conf/cli.toml:/etc/sawtooth/cli.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/rest_api.toml:/etc/sawtooth/rest_api.toml
+        - /home/atri/workspace_sawtooth/pbft-sample-network/transaction-processors:/app/transaction-processors
     command: |
       bash -c "
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
@@ -111,9 +115,11 @@ services:
         apt-get install net-tools
         apt-get install -y sawtooth-pbft-engine
         apt-get install -y sawtooth-devmode-engine-rust
+        apt-get install -y python3-sawtooth-sdk
         apt-get install curl -y
         apt install iputils-ping -y
         /app/bin/services.sh
+        cp /root/.sawtooth/keys/my_key.priv /root/.sawtooth/keys/root.priv
         tail -F anything
       "
 
@@ -138,6 +144,7 @@ services:
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-c/validator/conf/validator.toml:/etc/sawtooth/validator.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-c/validator/conf/cli.toml:/etc/sawtooth/cli.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/rest_api.toml:/etc/sawtooth/rest_api.toml
+        - /home/atri/workspace_sawtooth/pbft-sample-network/transaction-processors:/app/transaction-processors
     command: |
       bash -c "
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
@@ -154,9 +161,11 @@ services:
         apt-get install net-tools
         apt-get install -y sawtooth-pbft-engine
         apt-get install -y sawtooth-devmode-engine-rust
+        apt-get install -y python3-sawtooth-sdk
         apt-get install curl -y
         apt install iputils-ping -y
         /app/bin/services.sh
+        cp /root/.sawtooth/keys/my_key.priv /root/.sawtooth/keys/root.priv
         tail -F anything
       "
 
@@ -181,6 +190,7 @@ services:
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-d/validator/conf/validator.toml:/etc/sawtooth/validator.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-d/validator/conf/cli.toml:/etc/sawtooth/cli.toml
         - /home/atri/workspace_sawtooth/pbft-sample-network/node-a/validator/conf/rest_api.toml:/etc/sawtooth/rest_api.toml
+        - /home/atri/workspace_sawtooth/pbft-sample-network/transaction-processors:/app/transaction-processors
     command: |
       bash -c "
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
@@ -197,8 +207,10 @@ services:
         apt-get install net-tools
         apt-get install -y sawtooth-pbft-engine
         apt-get install -y sawtooth-devmode-engine-rust
+        apt-get install -y python3-sawtooth-sdk
         apt-get install curl -y
         apt install iputils-ping -y
         /app/bin/services.sh
+        cp /root/.sawtooth/keys/my_key.priv /root/.sawtooth/keys/root.priv
         tail -F anything
       "
