@@ -1,0 +1,14 @@
+# Service definition for Hyperledger sawtooth intkey tp service
+[Unit]
+Description=Sawtooth intkey tp
+Documentation=https://sawtooth.hyperledger.org/docs/1.2/
+Wants=network-online.target
+After=network-online.target
+[Service]
+Type=simple
+Restart=on-failure
+StandardOutput=append:/var/log/sawtooth/sawtooth-intkey-sysout.log
+StandardError=append:/var/log/sawtooth/sawtooth-intkey-syserr.log
+ExecStart=intkey-tp-python -v
+[Install]
+WantedBy=multi-user.target

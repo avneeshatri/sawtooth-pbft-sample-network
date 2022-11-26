@@ -1,0 +1,14 @@
+# Service definition for Hyperledger sawtooth validator service
+[Unit]
+Description=Sawtooth validator
+Documentation=https://sawtooth.hyperledger.org/docs/1.2/
+Wants=network-online.target
+After=network-online.target
+[Service]
+Type=simple
+Restart=on-failure
+StandardOutput=append:/var/log/sawtooth/sawtooth-validator-sysout.log
+StandardError=append:/var/log/sawtooth/sawtooth-validator-syserr.log
+ExecStart=sawtooth-validator -vvv
+[Install]
+WantedBy=multi-user.target
