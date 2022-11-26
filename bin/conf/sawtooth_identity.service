@@ -9,6 +9,6 @@ Type=simple
 Restart=on-failure
 StandardOutput=append:/var/log/sawtooth/sawtooth-identity-sysout.log
 StandardError=append:/var/log/sawtooth/sawtooth-identity-syserr.log
-ExecStart=identity-tp -vv
+ExecStart=/usr/bin/identity-tp -vv
 [Install]
 WantedBy=multi-user.target

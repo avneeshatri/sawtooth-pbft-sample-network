@@ -9,6 +9,6 @@ Type=simple
 Restart=on-failure
 StandardOutput=append:/var/log/sawtooth/sawtooth-settings-sysout.log
 StandardError=append:/var/log/sawtooth/sawtooth-settings-syserr.log
-ExecStart=settings-tp -vv
+ExecStart=/usr/bin/settings-tp -vv
 [Install]
 WantedBy=multi-user.target

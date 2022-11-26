@@ -9,6 +9,6 @@ Type=simple
 Restart=on-failure
 StandardOutput=append:/var/log/sawtooth/sawtooth-intkey-sysout.log
 StandardError=append:/var/log/sawtooth/sawtooth-intkey-syserr.log
-ExecStart=intkey-tp-python -v
+ExecStart=/usr/bin/intkey-tp-python -v
 [Install]
 WantedBy=multi-user.target

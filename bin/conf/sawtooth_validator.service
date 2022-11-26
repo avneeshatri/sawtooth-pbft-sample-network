@@ -9,6 +9,6 @@ Type=simple
 Restart=on-failure
 StandardOutput=append:/var/log/sawtooth/sawtooth-validator-sysout.log
 StandardError=append:/var/log/sawtooth/sawtooth-validator-syserr.log
-ExecStart=sawtooth-validator -vvv
+ExecStart=/usr/bin/sawtooth-validator -vvv
 [Install]
 WantedBy=multi-user.target

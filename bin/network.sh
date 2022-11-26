@@ -9,13 +9,14 @@ function generateGenesis() {
 
 
 function setUpSystemCtl () {
-	 cp $SRC_HOME/bin/conf/*.service /etc/systemd/system/
+	 cp /pbft_setup/sawtooth-pbft-sample-network/bin/conf/*.service /etc/systemd/system/
 	 systemctl enable sawtooth_validator.service
 	 systemctl enable sawtooth_setting.service
 	 systemctl enable sawtooth_identity.service
 	 systemctl enable sawtooth_intkey_tp.service
 	 systemctl enable sawtooth_pbft_engine.service
 	 systemctl enable sawtooth_rest.service
+	 systemctl daemon-reload
 }
 
 function startServices(){
@@ -48,7 +49,7 @@ if [[ $# -lt 1 ]] ; then
 fi
 
 
-if [[ -z $SRC_HOME ]]then;
+if [[ -z $SRC_HOME ]]; then
 	echo " Env SRC_HOME not set"
 	exit 1
 fi
@@ -94,7 +95,7 @@ if [[ $CMD == "GENESIS" ]];then
 	generateGenesis
 fi
 
-if [[ $CMD == "UP" ]];then
+if [[ $CMD == "SETUP" ]];then
 	setUpSystemCtl
 fi 
 
