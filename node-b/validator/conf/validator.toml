@@ -27,7 +27,7 @@
 # of strings in the format "option:endpoint", where the options are currently
 # network and component.
 bind = [
-  "network:tcp://10.5.0.3:8800",
+  "network:tcp://eth0:8800",
   "component:tcp://127.0.0.1:4004",
   "consensus:tcp://127.0.0.1:5050"
 ]
@@ -40,7 +40,7 @@ bind = [
 peering = "static"
 
 # Advertised network endpoint URL.
-endpoint = "tcp://10.5.0.3:8800"
+endpoint = "tcp://node-b-validator:8800"
 
 # Uri(s) to connect to in order to initially connect to the validator network,
 # in the format tcp://hostname:port. This is not needed in static peering mode
@@ -49,7 +49,7 @@ endpoint = "tcp://10.5.0.3:8800"
 
 # A list of peers to attempt to connect to in the format tcp://hostname:port.
 # It defaults to None. Replace host1 with the peer's hostname or IP address.
-peers = ["tcp://10.5.0.2:8800","tcp://10.5.0.3:8800","tcp://10.5.0.4:8800","tcp://10.5.0.5:8800"]
+peers = ["tcp://node-a-validator:8800","tcp://node-b-validator:8800","tcp://node-c-validator:8800","tcp://node-d-validator:8800"]
 
 # The type of scheduler to use. The choices are 'serial' or 'parallel'.
 scheduler = 'parallel'
